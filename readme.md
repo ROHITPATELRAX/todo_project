@@ -1,4 +1,4 @@
-# Django/Flask Web API Project
+# Django Web API Project
 
 This project is a Django-based Web API with CRUD operations for Todo items and user authentication.
 
