@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "4c48ca28-f668-4ff7-bf74-9dcce60e35ee",
+		"name": "Todo_collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31965338"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"rohit.patel\",\n\t\"email\": \"rohit.patel@xyz.com\",\n\t\"password\": \"abcd\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/register/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"rohit.patel\",\n\t\"password\": \"abcd\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TodoController",
+			"item": [
+				{
+					"name": "Create Todo Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{jwt_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Sample Todo 2\",\n\t\"description\": \"Sample Todo 2\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/todo/create/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Todo Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/todo/getall/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo",
+								"getall",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Todo Item",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/todo/get/1/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo",
+								"get",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Todo Item",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{jwt_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Updated Todo\",\n\t\"description\": \"This todo item has been updated.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/todo/update/2/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo",
+								"update",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Todo Item",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/todo/delete/1/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"todo",
+								"delete",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "jwt_token",
+			"value": "daef147989f53804ce548641cdf7041c4e180545",
+			"type": "string"
+		}
+	]
+}
